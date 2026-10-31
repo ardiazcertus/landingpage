@@ -1,0 +1,471 @@
+
+/* ========================================== */
+/* 1. CONFIGURACIÓN GLOBAL                    */
+/* ========================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #1e293b;
+    background-color: #ffffff;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+}
+
+.contenedor {
+    width: 90%;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+
+/* ========================================== */
+/* 2. ENCABEZADO Y MENÚ DE NAVEGACIÓN         */
+/* PROPIEDADES: DISPLAY Y POSITION            */
+/* ========================================== */
+
+.encabezado {
+    background-color: #0f172a;
+
+    /* Mantiene el menú visible al desplazarse */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.barra-navegacion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 18px 0;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+.logo span {
+    color: #38bdf8;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.menu a {
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: #38bdf8;
+}
+
+
+/* ========================================== */
+/* 3. SECCIÓN HERO                            */
+/* DISPLAY FLEX Y POSITION RELATIVE           */
+/* ========================================== */
+
+.hero {
+    background: linear-gradient(
+        135deg,
+        #1e3a8a,
+        #0f172a
+    );
+    color: white;
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+.hero-contenido {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.hero-texto {
+    flex: 1;
+}
+
+.etiqueta {
+    display: inline-block;
+    background-color: #0284c7;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.hero h1 {
+    font-size: 46px;
+    line-height: 1.2;
+    margin: 25px 0;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #dbeafe;
+    margin-bottom: 30px;
+}
+
+/* Botón principal */
+.boton {
+    display: inline-block;
+    padding: 14px 28px;
+    background-color: #06b6d4;
+    color: #082f49;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.boton:hover {
+    background-color: #67e8f9;
+    transform: translateY(-3px);
+}
+
+
+/* ========================================== */
+/* 4. ILUSTRACIÓN DE LA PORTADA               */
+/* POSITION RELATIVE Y ABSOLUTE               */
+/* ========================================== */
+
+.hero-visual {
+    flex: 1;
+    position: relative;
+    min-width: 0;
+    padding: 35px 0;
+}
+
+.ventana-web {
+    background-color: #1e293b;
+    border: 1px solid #475569;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+.ventana-barra {
+    display: flex;
+    gap: 8px;
+    padding: 15px;
+    background-color: #334155;
+}
+
+.ventana-barra span {
+    width: 12px;
+    height: 12px;
+    background-color: #38bdf8;
+    border-radius: 50%;
+}
+
+.ventana-codigo {
+    padding: 30px;
+    font-family: Consolas, monospace;
+}
+
+.ventana-codigo p {
+    font-size: 14px;
+    overflow-wrap: anywhere;
+    color: #7dd3fc;
+    margin: 12px 0;
+}
+
+.etiqueta-flotante {
+    position: absolute;
+    right: -15px;
+    bottom: 0;
+
+    background-color: #ffffff;
+    color: #1e40af;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: bold;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+
+/* ========================================== */
+/* 5. ESTILOS GENERALES DE SECCIONES          */
+/* ========================================== */
+
+.seccion {
+    padding: 80px 0;
+    scroll-margin-top: 100px;
+}
+
+.titulo-seccion {
+    text-align: center;
+    font-size: 34px;
+    color: #1e3a8a;
+    margin-bottom: 10px;
+}
+
+.descripcion-seccion {
+    text-align: center;
+    color: #64748b;
+    margin-bottom: 45px;
+}
+
+
+/* ========================================== */
+/* 6. TARJETAS DE SERVICIOS                   */
+/* DISPLAY FLEX Y BOX MODEL                   */
+/* ========================================== */
+
+.servicios {
+    background-color: #f8fafc;
+}
+
+.tarjetas {
+
+    /* Coloca las tarjetas horizontalmente */
+    display: flex;
+
+    /* Permite pasar a otra fila */
+    flex-wrap: wrap;
+
+    /* Espacio entre tarjetas */
+    gap: 25px;
+}
+
+.tarjeta {
+
+    /* Flexbox: ancho adaptable */
+    flex: 1 1 280px;
+
+    /* Box Model */
+    margin: 0;
+    padding: 30px;
+    border: 1px solid #e2e8f0;
+
+    /* Diseño visual */
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+
+    transition: transform 0.3s,
+                box-shadow 0.3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+.icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 65px;
+    height: 65px;
+
+    background-color: #dbeafe;
+    color: #1d4ed8;
+
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.tarjeta h3 {
+    font-size: 22px;
+    margin-top: 25px;
+}
+
+.tarjeta p {
+    color: #64748b;
+}
+
+.tarjeta a {
+    color: #2563eb;
+    font-weight: bold;
+}
+
+
+/* ========================================== */
+/* 7. SOBRE NOSOTROS                          */
+/* DISPLAY FLEX                               */
+/* ========================================== */
+
+.nosotros-contenido {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.nosotros-texto {
+    flex: 1;
+}
+
+.nosotros-texto h2 {
+    font-size: 34px;
+    color: #1e3a8a;
+}
+
+.nosotros-texto li {
+    margin-bottom: 10px;
+}
+
+.nosotros-destacado {
+    flex: 1;
+    padding: 50px;
+    border-radius: 20px;
+
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #06b6d4
+    );
+
+    color: white;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+
+/* ========================================== */
+/* 8. FORMULARIO DE CONTACTO                  */
+/* DISPLAY FLEX Y MODELO DE CAJA              */
+/* ========================================== */
+
+.contacto {
+    background-color: #eff6ff;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px;
+
+    background-color: white;
+    border: 1px solid #dbeafe;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.grupo-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.grupo-campo label {
+    font-weight: bold;
+}
+
+.grupo-campo input,
+.grupo-campo textarea {
+    width: 100%;
+    padding: 14px;
+
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    font: inherit;
+}
+
+.grupo-campo input:focus,
+.grupo-campo textarea:focus {
+    outline: 2px solid #93c5fd;
+    border-color: #2563eb;
+}
+
+.aviso-formulario {
+    color: #64748b;
+    font-size: 13px;
+    margin: 0;
+}
+
+.formulario button {
+    width: 100%;
+}
+
+
+/* ========================================== */
+/* 9. PIE DE PÁGINA                           */
+/* ========================================== */
+
+.pie-pagina {
+    background-color: #0f172a;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+
+/* ========================================== */
+/* 10. DISEÑO RESPONSIVE                      */
+/* ========================================== */
+
+@media (max-width: 768px) {
+
+    .barra-navegacion {
+        flex-direction: column;
+    }
+
+    .menu {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero-contenido {
+        flex-direction: column;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero-visual {
+        width: 100%;
+    }
+
+    .etiqueta-flotante {
+        right: 0;
+    }
+
+    .nosotros-contenido {
+        flex-direction: column;
+    }
+
+    .tarjetas {
+        flex-direction: column;
+    }
+
+    .formulario {
+        padding: 25px;
+    }
+
+    .seccion {
+        padding: 50px 0;
+    }
+}
